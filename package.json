@@ -1,0 +1,11 @@
+{
+  "name": "aws-cloudwatch-synthetics-local",
+  "version": "0.1.0",
+  "devDependencies": {},
+  "dependencies": {
+    "loglevel": "^1.8.1",
+    "puppeteer": "^10.1.0",
+    "puppeteer-core": "^10.1.0",
+    "yargs": "^17.6.2"
+  }
+}
