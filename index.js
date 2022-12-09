@@ -135,8 +135,8 @@ exports.getPage = async () => {
     this.page = await this.browser.newPage()
   }
 
-  if(this.logLevel === 0){
-    log.debug("Attaching debug logger to page")
+  if(logLevel === 0){
+    log.warn("Attaching debug logger to page")
     setUpDebugLoggingOfPage(this.page);
   }
 
@@ -267,6 +267,9 @@ exports.start = async (headlessMode, screenshotDir, slowMo=0) => {
   if (!fs.existsSync(screenshotDir)) {
     fs.mkdirSync(screenshotDir)
   }
+  screenShotPath=screenshotDir
+  log.debug(`Saving screenshots to ${screenshotDir}`);
+
   this.browser = await puppeteer.launch({
     headless: headlessMode,
     defaultViewport: {
