@@ -1,6 +1,9 @@
 {
   "name": "aws-cloudwatch-synthetics-local",
   "version": "0.1.0",
+  "engines": {
+    "node": ">=14.17.0 <15.0.0"
+  },
   "devDependencies": {},
   "dependencies": {
     "loglevel": "^1.8.1",
