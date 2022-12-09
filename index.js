@@ -77,7 +77,7 @@ function setUpDebugLoggingOfPage(page) {
 
   // Emitted when a script within the page uses `console`
   // @ts-ignore
-  page.on('console', message => console[message.type()](`👉 ${message.text()}`));
+  page.on('console', message => log.info(`[${message.type()}] 👉 ${message.text()}`));
 
   // Emitted when the page emits an error event (for example, the page crashes)
   // @ts-ignore
