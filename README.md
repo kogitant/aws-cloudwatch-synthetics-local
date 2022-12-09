@@ -10,6 +10,13 @@ In your ts project with canary scripts, use it as devDependency like this (both 
     "SyntheticsLogger": "kogitant/aws-cloudwatch-synthetics-local#main",
 ```
 
+There's also at least one branch that is compatible with specific version of https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Library_nodejs_puppeteer.html
+
+```
+    "Synthetics": "kogitant/aws-cloudwatch-synthetics-local#syn-nodejs-puppeteer-3.8",
+    "SyntheticsLogger": "kogitant/aws-cloudwatch-synthetics-local#syn-nodejs-puppeteer-3.8",
+```
+
 # Running scripts locally
 In your project with typescript canary scripts, you can do stuff like:
 ```
