@@ -33,15 +33,18 @@ const yargs = require('yargs')
     }), argv = yargs.argv;
 
 async function execute(entry, headlessMode=false, screenshotDir=".screenshot", logLevel = 1, slowMo = 0) {
-    console.info(`Start Canary, headlessMode=${headlessMode}, screenshotDir=${screenshotDir}, logLevel=${logLevel}, slowMo=${slowMo}`);
+    console.info(`Start Canary, entry=${entry}, headlessMode=${headlessMode}, screenshotDir=${screenshotDir}, logLevel=${logLevel}, slowMo=${slowMo}`);
 
     await synthetics.setLogLevel(logLevel);
     await synthetics.start(headlessMode, screenshotDir, slowMo);
     try{
-        let lib = path.join(process.cwd(), entry.split('.')[0])
-        console.log(`process dir: ${process.cwd()}, entry: [${entry}], lib: [${lib}]`);
+        let entry_parts = entry.split('.');
+        let lib_path = entry_parts[0];
+        let function_name = entry_parts[1];
+        let lib = path.join(process.cwd(), lib_path)
+        console.log(`process dir: ${process.cwd()}, entry: [${entry}], lib_path: [${lib_path}], lib: [${lib}], function_name: [${function_name}]`);
         const script = require(lib)
-        await script[entry.split('.')[1]]();
+        await script[function_name]();
         console.log("CANARY PASSED");
     } catch (e) {
         console.error(e);
